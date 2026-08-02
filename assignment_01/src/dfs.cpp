@@ -5,7 +5,7 @@ vector<int> dfsTraversal(vector<int> &row_ptr, vector<int> &col_idx, int src){
 
     vector<int> visited(V,0);
     stk.push(src);
-    visited[node]=1;
+    visited[src]=1;
     while(!stk.empty()){
         int node = stk.top();
         stk.pop();
