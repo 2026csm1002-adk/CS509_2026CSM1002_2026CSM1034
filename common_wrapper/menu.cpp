@@ -22,7 +22,7 @@ int Menu::ShowAlgorithmMenu(){
     cout<<"\n=============Algorithm Menu============="<<endl;
     cout<<"1. BFS"<<endl;
     cout<<"2. DFS"<<endl;
-    cout<<"3. Single Source Shortest Path"<<endl;
+    cout<<"3. Single Source Shortest Path(SSSP)"<<endl;
     cout<<"0. Back"<<endl;
     int choose=-1;
     cout<<"Enter your choice: ";
