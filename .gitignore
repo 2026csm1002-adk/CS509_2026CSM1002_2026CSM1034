@@ -1,0 +1,6 @@
+.vscode/
+tools/gen_tests.exe
+tools/gen_tests
+cs509_wrapper.exe
+cs509_wrapper
+*.o
