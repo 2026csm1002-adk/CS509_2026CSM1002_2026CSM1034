@@ -3,9 +3,9 @@
 
 void assignment01Driver(){
 
-    int choice = Menu::showAlgorithmMenu();
-
-    switch(choice){
+    while(true){
+        int choice = Menu::showAlgorithmMenu();
+        switch(choice){
         case 1:
             bfsDriver(); //call bfsDriver
             break;
@@ -15,8 +15,13 @@ void assignment01Driver(){
         case 3:
             ssspDriver(); //call ssspDriver
             break;
+        case 0:
+            cout<<"Go Back"<<endl;
+            return;
         default:
             // Handle invalid choice
             break;
     }
+    }
+    
 }

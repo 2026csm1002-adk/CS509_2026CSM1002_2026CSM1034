@@ -30,5 +30,81 @@ std::vector<int> dfsTraversal(const CSRGraph &g, int src){
 
 
 void dfsDriver(){
+    int choice = Menu::showInputMenu();
+    switch(choice){
+        case 1:{
+            string file = chooseFiles("./assignment_01/tests/dfs_tests");
+            AdjListUnweighted g = readUnweightedGraph(file);
+            CSRGraph csr = buildCSR(g);
+
+            auto start = chrono::high_resolution_clock::now();
+            vector<int> dfs = dfsTraversal(csr, g.source);
+            auto end = chrono::high_resolution_clock::now();
+            double excutionTime = chrono::duration<double,milli>(end-start).count();
+            string fileName = createOutputFiles(file,"dfs");
+            ofstream outputFile(fileName);
+            outputFile<<"DFS Traversal: "<<endl;
+            for(int i=0; i<dfs.size(); i++){
+                outputFile << dfs[i] << " ";
+            }
+            outputFile << endl;
+            cout<<"Output File Generated : "<<fileName<<endl;
+            cout << "Execution Time: " << excutionTime << " ms" << endl;
+            break;
+        }
+        case 2:{
+            vector<string> files = getTestsFiles("./assignment_01/tests/dfs_tests");
+
+            for(auto &file : files){
+                AdjListUnweighted g = readUnweightedGraph(file);
+                CSRGraph csr = buildCSR(g);
+
+                auto start = chrono::high_resolution_clock::now();
+                vector<int> dfs = dfsTraversal(csr, g.source);
+                auto end = chrono::high_resolution_clock::now();
+                double excutionTime = chrono::duration<double,milli>(end-start).count();
+                string fileName = createOutputFiles(file,"dfs");
+                ofstream outputFile(fileName);
+                outputFile<<"DFS Traversal: "<<endl;
+                for(int i=0; i<dfs.size(); i++){
+                    outputFile << dfs[i] << " ";
+                }
+                outputFile << endl;
+                cout<<"Output File Generated : "<<fileName<<endl;
+                cout << "Execution Time: " << excutionTime << " ms" << endl;
+            }
+            break;
+        }
+        case 3:{
+            string path;
+
+            cout << "\nEnter file path : ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, path);
+            AdjListUnweighted g = readUnweightedGraph(path);
+            CSRGraph csr = buildCSR(g);
+
+            auto start = chrono::high_resolution_clock::now();
+            vector<int> dfs = dfsTraversal(csr, g.source);
+            auto end = chrono::high_resolution_clock::now();
+            double excutionTime = chrono::duration<double,milli>(end-start).count();
+            string fileName = createOutputFiles(path,"dfs");
+            ofstream outputFile(fileName);
+            outputFile<<"DFS Traversal: "<<endl;
+            for(int i=0; i<dfs.size(); i++){
+                outputFile << dfs[i] << " ";
+            }
+            outputFile << endl;
+            cout<<"Output File Generated : "<<fileName<<endl;
+            cout << "Execution Time: " << excutionTime << " ms" << endl;
+            break;
+        }
+        case 0:
+            cout<<"Go Back"<<endl;
+            return;
+        default:
+            cout<<"Invalid choice"<<endl;
+            break;
+    }
     return;
 }

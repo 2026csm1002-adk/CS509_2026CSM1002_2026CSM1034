@@ -35,7 +35,7 @@ int Menu::showInputMenu(){
     cout<<"1. Run Selected Test "<<endl;
     cout<<"2. Run all Tests Cases"<<endl;
     cout<<"3. Run Custom Test"<<endl;
-    cout<<"0. Back"<<endl;
+    cout<<"0. Go Back"<<endl;
     int choose=-1;
     cout<<"Enter your choice: ";
     cin>>choose;

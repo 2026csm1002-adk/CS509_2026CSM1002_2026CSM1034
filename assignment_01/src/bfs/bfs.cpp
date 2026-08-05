@@ -34,9 +34,74 @@ void bfsDriver(){
     switch(choice){
         case 1:{
             string file = chooseFiles("./assignment_01/tests/bfs_tests");
-            cout<<file<<endl;
+            AdjListUnweighted g = readUnweightedGraph(file);
+            CSRGraph csr = buildCSR(g);
+
+            auto start = chrono::high_resolution_clock::now();
+            vector<int> bfs = bfsTraversal(csr, g.source);
+            auto end = chrono::high_resolution_clock::now();
+            double excutionTime = chrono::duration<double,milli>(end-start).count();
+            string fileName = createOutputFiles(file,"bfs");
+            ofstream outputFile(fileName);
+            outputFile<<"BFS Traversal: "<<endl;
+            for(int i=0; i<bfs.size(); i++){
+                outputFile << bfs[i] << " ";
+            }
+            outputFile << endl;
+            cout<<"Output File Generated : "<<fileName<<endl;
+            cout << "Execution Time: " << excutionTime << " ms" << endl;
             break;
         }
+        case 2:{
+            vector<string> files = getTestsFiles("./assignment_01/tests/bfs_tests");
+
+            for(auto &file : files){
+                AdjListUnweighted g = readUnweightedGraph(file);
+                CSRGraph csr = buildCSR(g);
+
+                auto start = chrono::high_resolution_clock::now();
+                vector<int> bfs = bfsTraversal(csr, g.source);
+                auto end = chrono::high_resolution_clock::now();
+                double excutionTime = chrono::duration<double,milli>(end-start).count();
+                string fileName = createOutputFiles(file,"bfs");
+                ofstream outputFile(fileName);
+                outputFile<<"BFS Traversal: "<<endl;
+                for(int i=0; i<bfs.size(); i++){
+                    outputFile << bfs[i] << " ";
+                }
+                outputFile << endl;
+                cout<<"Output File Generated : "<<fileName<<endl;
+                cout << "Execution Time: " << excutionTime << " ms" << endl;
+            }
+            break;
+        }
+        case 3:{
+            string path;
+
+            cout << "\nEnter file path : ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, path);
+            AdjListUnweighted g = readUnweightedGraph(path);
+            CSRGraph csr = buildCSR(g);
+
+            auto start = chrono::high_resolution_clock::now();
+            vector<int> bfs = bfsTraversal(csr, g.source);
+            auto end = chrono::high_resolution_clock::now();
+            double excutionTime = chrono::duration<double,milli>(end-start).count();
+            string fileName = createOutputFiles(path,"bfs");
+            ofstream outputFile(fileName);
+            outputFile<<"BFS Traversal: "<<endl;
+            for(int i=0; i<bfs.size(); i++){
+                outputFile << bfs[i] << " ";
+            }
+            outputFile << endl;
+            cout<<"Output File Generated : "<<fileName<<endl;
+            cout << "Execution Time: " << excutionTime << " ms" << endl;
+            break;
+        }
+        case 0:
+            cout<<"God Back"<<endl;
+            return;
         default:
             cout<<"Invalid choice"<<endl;
             break;
