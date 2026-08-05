@@ -74,7 +74,7 @@ Then choose an option from the menu (single file or all files, per algorithm).
 ### Test Cases and Result Table
 
 | Mode | Test File | Input Type | Input Size | Expected Output | Algorithm Time |
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | int | bfs_10.txt | Unweighted adjacency list | V=10, E=14 | Traversal / distances | 0.002333 ms |
 | int | bfs_100.txt | Unweighted adjacency list | V=100, E=... | Traversal / distances | 0.00441 ms |
 | int | bfs_10000.txt | Unweighted adjacency list | V=10000, E=... | Traversal / distances | 0.231208 ms |
