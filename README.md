@@ -1,7 +1,7 @@
 # CS509 Laboratory Repository (Buddy)
 
 ## Repository Overview
-Buddy repository for CS509 graph algorithms assignment (BFS, DFS, SSSP).
+This repository contains all assignment programs for the Buddy Tasks of the CS509 – PG Software Lab course. 
 
 ## Student / Pair Details
 - Student 1: Md Sadruzzama, 2026CSM1034
