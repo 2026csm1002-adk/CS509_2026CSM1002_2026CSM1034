@@ -5,6 +5,7 @@
 #include<vector>
 #include<filesystem>
 #include<fstream>
+#include "menu.h"
 
 using namespace std;
 namespace fs = filesystem;

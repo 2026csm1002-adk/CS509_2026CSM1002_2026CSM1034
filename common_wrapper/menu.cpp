@@ -1,5 +1,5 @@
-#include<iostream.h>
-#include<menu.h>
+#include<iostream>
+#include "menu.h"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int Menu::showAssignmentMenu(){
     return choose;
 }
 
-int Menu::ShowAlgorithmMenu(){
+int Menu::showAlgorithmMenu(){
     cout<<"\n=============Algorithm Menu============="<<endl;
     cout<<"1. BFS"<<endl;
     cout<<"2. DFS"<<endl;

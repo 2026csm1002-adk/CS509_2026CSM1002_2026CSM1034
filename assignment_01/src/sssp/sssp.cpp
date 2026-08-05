@@ -34,3 +34,7 @@ vector<long long> sssp(const CSRGraph &g, int src){
 
     return dist;
 }
+
+void ssspDriver(){
+    return;
+}

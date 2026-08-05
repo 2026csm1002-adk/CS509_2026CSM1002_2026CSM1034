@@ -4,9 +4,9 @@
 class Menu{
     
 public:
-    int showAlgorithMenu();
-    int showAssignmentMenu();
-    int showTestTypeMenu();
+    static int showAssignmentMenu();
+    static int showAlgorithmMenu();
+    static int showInputMenu();
 };
 
 #endif //MENU_H

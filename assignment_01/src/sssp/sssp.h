@@ -10,4 +10,5 @@ constexpr long long SSSP_INF = LLONG_MAX;
 
 vector<long long>sssp(const CSRGraph& g, int src);
 
+void ssspDriver();
 #endif

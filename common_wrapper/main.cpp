@@ -1,15 +1,15 @@
-#include "../assignment_01/driver/driver.h"
 #include <iostream>
+#include "../assignment_01/driver/driver.h"
 #include "menu.h"
 
 int main() {
 
     while(true){
-        int choice = Menu::showAssignmetMenu();
+        int choice = Menu::showAssignmentMenu();
 
         switch(choice){
             case 1:
-                assignment01driver();
+                assignment01Driver();
                 break;
             case 0:
                 cout<<"Exited"<<endl;

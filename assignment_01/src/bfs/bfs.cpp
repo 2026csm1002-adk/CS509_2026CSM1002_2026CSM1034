@@ -1,4 +1,3 @@
-#include "../driver/driver.h"
 #include "bfs.h"
 using namespace std;
 std::vector<int> bfsTraversal(const CSRGraph &g, int src){
@@ -27,4 +26,21 @@ std::vector<int> bfsTraversal(const CSRGraph &g, int src){
     }
 
     return bfs;
+}
+
+
+void bfsDriver(){
+    int choice = Menu::showInputMenu();
+    switch(choice){
+        case 1:{
+            string file = chooseFiles("./assignment_01/tests/bfs_tests");
+            cout<<file<<endl;
+            break;
+        }
+        default:
+            cout<<"Invalid choice"<<endl;
+            break;
+    }
+
+    return ;
 }
