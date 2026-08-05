@@ -36,5 +36,81 @@ vector<long long> sssp(const CSRGraph &g, int src){
 }
 
 void ssspDriver(){
+    int choice = Menu::showInputMenu();
+    switch(choice){
+        case 1:{
+            string file = chooseFiles("./assignment_01/tests/sssp_tests");
+            AdjListWeighted g = readWeightedGraph(file);
+            CSRGraph csr = buildCSR(g);
+
+            auto start = chrono::high_resolution_clock::now();
+            vector<long long> ssspDist = sssp(csr, g.source);
+            auto end = chrono::high_resolution_clock::now();
+            double excutionTime = chrono::duration<double,milli>(end-start).count();
+            string fileName = createOutputFiles(file,"sssp");
+            ofstream outputFile(fileName);
+            outputFile<<"SSSP Distances: "<<endl;
+            for(int i=0; i<ssspDist.size(); i++){
+                outputFile << ssspDist[i] << " ";
+            }
+            outputFile << endl;
+            cout<<"Output File Generated : "<<fileName<<endl;
+            cout << "Execution Time: " << excutionTime << " ms" << endl;
+            break;
+        }
+        case 2:{
+            vector<string> files = getTestsFiles("./assignment_01/tests/sssp_tests");
+
+            for(auto &file : files){
+                AdjListWeighted g = readWeightedGraph(file);
+                CSRGraph csr = buildCSR(g);
+
+                auto start = chrono::high_resolution_clock::now();
+                vector<long long> ssspDist = sssp(csr, g.source);
+                auto end = chrono::high_resolution_clock::now();
+                double excutionTime = chrono::duration<double,milli>(end-start).count();
+                string fileName = createOutputFiles(file,"sssp");
+                ofstream outputFile(fileName);
+                outputFile<<"SSSP Distances: "<<endl;
+                for(int i=0; i<ssspDist.size(); i++){
+                    outputFile << ssspDist[i] << " ";
+                }
+                outputFile << endl;
+                cout<<"Output File Generated : "<<fileName<<endl;
+                cout << "Execution Time: " << excutionTime << " ms" << endl;
+            }
+            break;
+        }
+        case 3:{
+            string path;
+
+            cout << "\nEnter file path : ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, path);
+            AdjListWeighted g = readWeightedGraph(path);
+            CSRGraph csr = buildCSR(g);
+
+            auto start = chrono::high_resolution_clock::now();
+            vector<long long> ssspDist = sssp(csr, g.source);
+            auto end = chrono::high_resolution_clock::now();
+            double excutionTime = chrono::duration<double,milli>(end-start).count();
+            string fileName = createOutputFiles(path,"sssp");
+            ofstream outputFile(fileName);
+            outputFile<<"SSSP Distances: "<<endl;
+            for(int i=0; i<ssspDist.size(); i++){
+                outputFile << ssspDist[i] << " ";
+            }
+            outputFile << endl;
+            cout<<"Output File Generated : "<<fileName<<endl;
+            cout << "Execution Time: " << excutionTime << " ms" << endl;
+            break;
+        }
+        case 0:
+            cout<<"Go Back"<<endl;
+            return;
+        default:
+            cout<<"Invalid choice"<<endl;
+            break;
+    }
     return;
 }
