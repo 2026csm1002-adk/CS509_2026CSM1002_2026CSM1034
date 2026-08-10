@@ -103,6 +103,6 @@ void runDriver2(const string& algoName, const string& filepath) {
     } else if (name == "cc") {
         runDriver2(Algorithm2::CONNECTED_COMPONENTS, filepath);
     } else {
-        throw std::runtime_error("Unknown algorithm: " + algoName);
+        throw runtime_error("Unknown algorithm: " + algoName);
     }
 }
