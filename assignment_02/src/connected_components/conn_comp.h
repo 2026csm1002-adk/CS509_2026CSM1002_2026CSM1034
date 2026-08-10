@@ -10,6 +10,6 @@ struct ComponentsResult{
     int numComponents =0;
     vector<int> component;
 };
-ComponentsResult count_connected_components(CSRGGraph &g);
+ComponentsResult count_connected_components(CSRGraph &g);
 
 #endif // CONNECTED_COMPONENTS_H

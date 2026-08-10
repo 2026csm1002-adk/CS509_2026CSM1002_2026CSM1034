@@ -45,13 +45,14 @@ ComponentsResult count_connected_components(CSRGGraph &g) {
 
     unordered_map<int,int> existed;
 
-    int component=-1;
+    int component=0;
     for(int u=0; u<V; u++){
-        if(!existed[uf.findUpar(u)]){
-            existed[uf.findUpar(u)] = 1;
+        int upar = uf.findUpar(u);
+        if(!existed[upar]){
+            existed[upar] = component;
             component++;
         }
-        result.component.push_back(component);
+        result.component.push_back(existed[upar]);
     }
     result.numComponents = component+1;
 
