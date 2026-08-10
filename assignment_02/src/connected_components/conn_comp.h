@@ -4,6 +4,7 @@
 // Function prototypes for connected components
 #include<vector>
 #include<iostream>
+#include "../../../assignment_02/src/csr/csr.h"
 using namespace std;
 struct ComponentsResult{
     int numComponents =0;
