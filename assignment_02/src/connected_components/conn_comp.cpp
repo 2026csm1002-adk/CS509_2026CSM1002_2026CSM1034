@@ -13,7 +13,7 @@ public:
         }
     }
     int findUpar(int u){
-        if(parent[u] ===u) return u;
+        if(parent[u] == u) return u;
         return findUpar(parent[u]);
     }
     void unite(int u, int v){
@@ -31,7 +31,7 @@ public:
     }
 };
 
-ComponentsResult count_connected_components(CSRGGraph &g) {
+ComponentsResult count_connected_components(CSRGraph &g) {
     ComponentsResult result;
     int V = g.V;
     Unionfind uf(V);
