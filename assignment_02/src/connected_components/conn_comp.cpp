@@ -1,6 +1,14 @@
 #include "conn_comp.h"
-#include "../../../assignment_01/src/csr/csr.h"
 #include <unordered_map>
+#include <chrono>
+#include <fstream>
+#include <limits>
+
+#include "../io/graph_io2.h"
+#include "../../../common_wrapper/menu.h"
+#include "../../../common_wrapper/utilities.h"
+
+using namespace std;
 
 class Unionfind{
 private:
@@ -50,13 +58,71 @@ ComponentsResult count_connected_components(CSRGraph &g) {
     int component=0;
     for(int u=0; u<V; u++){
         int upar = uf.findUpar(u);
-        if(!existed[upar]){
+        if(existed.find(upar) == existed.end()){
             existed[upar] = component;
             component++;
         }
         result.component.push_back(existed[upar]);
     }
-    result.numComponents = component+1;
+    result.numComponents = component;
 
     return result;
+}
+
+namespace {
+    void runOne(const string& file) {
+        AdjListUnweighted g = readGraphNoSource(file);
+        CSRGraph csr = buildCSR(g);
+
+        auto start = chrono::high_resolution_clock::now();
+        ComponentsResult result = count_connected_components(csr);
+        auto end = chrono::high_resolution_clock::now();
+        double executionTime = chrono::duration<double, milli>(end - start).count();
+
+        string fileName = createOutputFiles2(file, "cc");
+        ofstream outputFile(fileName);
+        outputFile << "Algorithm: Connected Components\n";
+        outputFile << "Number of components: " << result.numComponents << "\n";
+        outputFile << "Vertex Component\n";
+        for (int v = 0; v < g.V; ++v) {
+            outputFile << v << " " << result.component[v] << "\n";
+        }
+        outputFile << "Execution time: " << executionTime << " ms\n";
+
+        cout << "Output File Generated : " << fileName << endl;
+        cout << "Number of components: " << result.numComponents << endl;
+        cout << "Execution Time: " << executionTime << " ms" << endl;
+    }
+}
+
+void ccDriver(){
+    int choice = Menu::showInputMenu();
+    switch(choice){
+        case 1:{
+            string file = chooseFiles("./assignment_02/tests/cc");
+            runOne(file);
+            break;
+        }
+        case 2:{
+            vector<string> files = getTestsFiles("./assignment_02/tests/cc");
+            for(auto &file : files){
+                runOne(file);
+            }
+            break;
+        }
+        case 3:{
+            string path;
+            cout << "\nEnter file path : ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, path);
+            runOne(path);
+            break;
+        }
+        case 0:
+            cout << "Go Back" << endl;
+            return;
+        default:
+            cout << "Invalid choice" << endl;
+            break;
+    }
 }

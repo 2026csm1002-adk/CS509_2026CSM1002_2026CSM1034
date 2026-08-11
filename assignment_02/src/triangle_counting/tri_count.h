@@ -12,5 +12,6 @@ struct TriangleResult{
 
 TriangleResult countTriangle(CSRGraph &g);
 
+void tcDriver();
 
 #endif //TRI_COMP_H

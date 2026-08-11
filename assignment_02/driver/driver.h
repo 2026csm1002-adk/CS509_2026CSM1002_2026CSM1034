@@ -1,23 +1,12 @@
-#ifndef DRIVER_H
-#define DRIVER_H
+#ifndef DRIVER2_H
+#define DRIVER2_H
 
-#include "../assignment_02/src/betweenness/betweenness.h"
-#include "../../../assignment_01/src/io/graph_io.h"
-#include "../../../assignment_01/src/csr/csr.h"
-#include "../../../assignment_01/src/csr/csr.h"
-#include "../assignment_02/src/connected_components/conn_comp.h"
-#include "../assignment_02/src/triangle_counting/tri_count.h"
-#include <string>
-using namespace std;
+#include "../../common_wrapper/menu.h"
+#include "../../common_wrapper/utilities.h"
+#include "../src/triangle_counting/tri_count.h"
+#include "../src/betweenness/betweenness.h"
+#include "../src/connected_components/conn_comp.h"
 
-enum class Algorithm2 { TRIANGLE_COUNTING, BETWEENNESS_CENTRALITY, CONNECTED_COMPONENTS };
+void assignment02Driver();
 
-// Reads the input file, builds CSR (untimed), runs the selected
-// algorithm (timed), and prints the result in the format required by
-// Assignment_2.pdf.
-void runDriver2(Algorithm2 algo, const string& filepath);
-
-// Convenience overload: parses "tc" / "bc" / "cc" (case-insensitive).
-void runDriver2(const string& algoName, const string& filepath);
-
-#endif
+#endif //DRIVER2_H

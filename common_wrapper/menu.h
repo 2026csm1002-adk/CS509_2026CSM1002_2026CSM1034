@@ -6,6 +6,7 @@ class Menu{
 public:
     static int showAssignmentMenu();
     static int showAlgorithmMenu();
+    static int showAlgorithmMenu2();
     static int showInputMenu();
 };
 

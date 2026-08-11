@@ -7,4 +7,6 @@ using namespace std;
 
 vector<double> betweennessCentrality(const CSRGraph& g);
 
+void bcDriver();
+
 #endif  

@@ -41,7 +41,7 @@ inline string chooseFiles(const string &folderPath){
     cout << "\nEnter your choice: ";
     cin >> choice;
 
-    while(choice < 1 || choice > files.size()){
+    while(choice < 1 || choice > (int)files.size()){
         cout<<"\n Invalid choice Try Again: ";
         cin >> choice;
     }
@@ -54,6 +54,15 @@ inline string createOutputFiles(const string &inputFile, const string &algorithm
     string filename = fs::path(inputFile).stem().string();
 
     return "assignment_01/outputs/" + filename + "_" + algorithm + ".txt";
+}
+
+// Same as createOutputFiles, but for Assignment 2 (writes to
+// assignment_02/outputs instead of assignment_01/outputs).
+inline string createOutputFiles2(const string &inputFile, const string &algorithm){
+    fs::create_directories("assignment_02/outputs");
+    string filename = fs::path(inputFile).stem().string();
+
+    return "assignment_02/outputs/" + filename + "_" + algorithm + ".txt";
 }
 
 #endif //UTILITY_H

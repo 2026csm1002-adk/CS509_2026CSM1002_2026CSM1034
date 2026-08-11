@@ -9,6 +9,7 @@ int Menu::showAssignmentMenu(){
     cout <<"==========================================\n";
 
     cout<<" 1. Assignment 1"<<endl;
+    cout<<" 2. Assignment 2"<<endl;
     cout<<" 0. Exit"<<endl;
 
     int choose=-1;
@@ -23,6 +24,18 @@ int Menu::showAlgorithmMenu(){
     cout<<"1. BFS"<<endl;
     cout<<"2. DFS"<<endl;
     cout<<"3. Single Source Shortest Path(SSSP)"<<endl;
+    cout<<"0. Back"<<endl;
+    int choose=-1;
+    cout<<"Enter your choice: ";
+    cin>>choose;
+    return choose;
+}
+
+int Menu::showAlgorithmMenu2(){
+    cout<<"\n=============Algorithm Menu (Assignment 2)============="<<endl;
+    cout<<"1. Triangle Counting"<<endl;
+    cout<<"2. Betweenness Centrality"<<endl;
+    cout<<"3. Connected Components"<<endl;
     cout<<"0. Back"<<endl;
     int choose=-1;
     cout<<"Enter your choice: ";
