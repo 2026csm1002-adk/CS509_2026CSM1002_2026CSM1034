@@ -105,6 +105,55 @@ Then choose an option from the menu (single file or all files, per algorithm).
 - 1. Triangle Counting (contributed by Md Sadruzzama)
 - 2. Betweenness Centrality(contributed by Aditya Kumar)
 - 3. Connected Components(contributed by Md Sadruzzama)
+
+## Input Formate
+### Triangle Counting/Between Centrality/Connected Components input formate
+  V E
+  u0 degree neighbor1 neighbor2 ...
+  u1 degree neighbor1 neighbor2 ...
+  ...
+  u(V-1) degree neighbor1 neighbor2 ...
+  V: number of vertices. E: number of undirected edges (count each edge once, even though it appears in two adjacency lists).
+  Every edge must appear in the adjacency list of both endpoint vertices.
+  For a vertex with no neighbours, write: u 0.
+  There is no SOURCE line: triangle counting is computed over the whole graph, not from a single vertex.
+
+### Triangle Counting output Formate
+  Algorithm: Triangle Counting
+  Total triangles: 3
+  Triangles found:
+  (0, 1, 2)
+  (1, 2, 3)
+  (3, 4, 5)
+  Execution time: <value> ms
+
+### Between Centrality Output Formate
+  Algorithm: Triangle Counting
+  Total triangles: 3
+  Triangles found:
+  (0, 1, 2)
+  (1, 2, 3)
+  (3, 4, 5)
+  Execution time: <value> ms
+
+### Connected Components Outputs Formate
+  Algorithm: Connected Components
+  Number of components: 4
+  Vertex Component
+  0      0
+  1      0
+  2      0
+  3      0
+  4      1
+  5      1
+  6      2
+  7      3
+  Execution time: <value> ms
+
+
+
+
+
 ## Directory Structure
 assignment_02/
 ├── driver/
@@ -153,3 +202,16 @@ common_wrapper/
 | Connected Components | cc_10000.txt | 10000 | 15000 | Component per vertex | Component per vertex | 0.28410 ms | Pass |
 | Connected Components | cc_50000.txt | 50000 | 75000 | Component per vertex | Component per vertex | 1.62140 ms | Pass |
 | Connected Components | cc_100000.txt | 100000 | 150000 | Component per vertex | Component per vertex | 3.10420 ms | Pass |
+
+
+### Complexity
+•⁠  ⁠Triangle Counting: Time ~O(V·d²) (d = avg degree, with sorted-neighbour common-neighbour check), Space O(V + E)
+•⁠  ⁠Betweenness Centrality (Brandes'): Time O(V·E), Space O(V + E)
+•⁠  ⁠Connected Components: Time O(V + E), Space O(V + E)
+
+### Compilation
+  // in root folder
+  make
+
+### Execute the Project
+  ./cs509
