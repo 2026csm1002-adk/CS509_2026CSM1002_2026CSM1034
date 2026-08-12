@@ -51,8 +51,6 @@ namespace {
         AdjListUnweighted g = readGraphNoSource(file);
         CSRGraph csr = buildCSR(g);
 
-        bool listTriangles = (g.V <= 100);
-
         auto start = chrono::high_resolution_clock::now();
         TriangleResult result = countTriangle(csr);
         auto end = chrono::high_resolution_clock::now();
@@ -62,7 +60,7 @@ namespace {
         ofstream outputFile(fileName);
         outputFile << "Algorithm: Triangle Counting\n";
         outputFile << "Total triangles: " << result.totalTriangles << "\n";
-        if (listTriangles) {
+        if (!result.triangles.empty()) {
             outputFile << "Triangles found:\n";
             for (const auto& t : result.triangles) {
                 outputFile << "(" << t[0] << ", " << t[1] << ", " << t[2] << ")\n";

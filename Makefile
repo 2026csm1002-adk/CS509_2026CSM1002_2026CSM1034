@@ -13,19 +13,11 @@ SRC = \
 ./assignment_01/src/dfs/dfs.cpp \
 ./assignment_01/src/sssp/sssp.cpp \
 ./assignment_01/driver/driver.cpp \
-<<<<<<< HEAD
 ./assignment_02/src/io/graph_io2.cpp \
 ./assignment_02/src/triangle_counting/tri_count.cpp \
 ./assignment_02/src/betweenness/betweenness.cpp \
 ./assignment_02/src/connected_components/conn_comp.cpp \
 ./assignment_02/driver/driver.cpp
-=======
-./assignment_02/driver/driver.cpp \
-./assignment_02/src/connected_components/conn_comp.cpp \
-./assignment_02/src/triangle_counting/tri_count.cpp \
-./assignment_02/src/betweenness/betweenness.cpp
->>>>>>> 5786fd7 (makefile)
-
 all:
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 

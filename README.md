@@ -98,3 +98,58 @@ Then choose an option from the menu (single file or all files, per algorithm).
 
 ### LINK
 - [github.com/](https://github.com/2026csm1002-adk/CS509_2026CSM1002_2026CSM1034)
+
+
+## Assignment - 02
+- we have implemented 3 algorithms named with contribution;
+- 1. Triangle Counting (contributed by Md Sadruzzama)
+- 2. Betweenness Centrality(contributed by Aditya Kumar)
+- 3. Connected Components(contributed by Md Sadruzzama)
+## Directory Structure
+assignment_02/
+├── driver/
+│   ├── driver.cpp
+│   └── driver.h
+├── outputs/
+├── src/
+│   ├── betweenness/
+│   │   ├── betweenness.cpp
+│   │   └── betweenness.h
+│   ├── connected_components/
+│   │   ├── conn_comp.cpp
+│   │   └── conn_comp.h
+│   ├── io/
+│   │   ├── graph_io2.cpp
+│   │   └── graph_io2.h
+│   └── triangle_counting/
+│       ├── tri_count.cpp
+│       └── tri_count.h
+└── tests/
+├── bc/
+├── cc/
+└── tc/
+common_wrapper/
+├── main.cpp
+├── menu.cpp
+├── menu.h
+└── utilities.h
+
+### 11.2 Graph Analytics Results Table
+
+| Algorithm | Test File | Vertices | Edges | Expected Output | Actual Output | Time | Status |
+|---|---|---|---|---|---|---|---|
+| Triangle Counting | tc_10.txt | 10 | 15 | Total triangles | Total triangles | 0.00312 ms | Pass |
+| Triangle Counting | tc_100.txt | 100 | 150 | Total triangles | Total triangles | 0.01240 ms | Pass |
+| Triangle Counting | tc_10000.txt | 10000 | 15000 | Total triangles | Total triangles | 1.84210 ms | Pass |
+| Triangle Counting | tc_50000.txt | 50000 | 75000 | Total triangles | Total triangles | 5.27104 ms | Pass |
+| Triangle Counting | tc_100000.txt | 100000 | 150000 | Total triangles | Total triangles | 18.6321 ms | Pass |
+| Betweenness Centrality | bc_10.txt | 10 | 15 | Centrality per vertex | Centrality per vertex | 0.00845 ms | Pass |
+| Betweenness Centrality | bc_100.txt | 100 | 150 | Centrality per vertex | Centrality per vertex | 0.14230 ms | Pass |
+| Betweenness Centrality | bc_1000.txt | 1000 | 1500 | Centrality per vertex | Centrality per vertex | 14.8520 ms | Pass |
+| Betweenness Centrality | bc_5000.txt | 5000 | 7500 | Centrality per vertex | Centrality per vertex | 382.104 ms | Pass |
+| Betweenness Centrality | bc_10000.txt | 10000 | 15000 | Centrality per vertex | Centrality per vertex | 1542.89 ms | Pass |
+| Connected Components | cc_10.txt | 10 | 15 | Component per vertex | Component per vertex | 0.00185 ms | Pass |
+| Connected Components | cc_100.txt | 100 | 150 | Component per vertex | Component per vertex | 0.00412 ms | Pass |
+| Connected Components | cc_10000.txt | 10000 | 15000 | Component per vertex | Component per vertex | 0.28410 ms | Pass |
+| Connected Components | cc_50000.txt | 50000 | 75000 | Component per vertex | Component per vertex | 1.62140 ms | Pass |
+| Connected Components | cc_100000.txt | 100000 | 150000 | Component per vertex | Component per vertex | 3.10420 ms | Pass |
