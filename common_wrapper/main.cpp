@@ -15,6 +15,8 @@ int main() {
             case 2:
                 assignment02Driver();
                 break;
+            case 3:
+                assignment03Driver();
             case 0:
                 cout<<"Exited"<<endl;
                 return 0;

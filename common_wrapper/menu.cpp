@@ -54,3 +54,14 @@ int Menu::showInputMenu(){
     cin>>choose;
     return choose;
 }
+
+int Menu::showAlgorithmMenu3(){
+    cout<<"\n=============Algorithm Menu (Assignment 3)============="<<endl;
+    cout<<"1. Gradient Descent "<<endl;
+    cout<<"2. Maxflow-Mincut "<<endl;
+    cout<<"0. Back"<<endl;
+    int choose=-1;
+    cout<<"Enter your choice: ";
+    cin>>choose;
+    return choose;
+}
