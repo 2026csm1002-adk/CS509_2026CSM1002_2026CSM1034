@@ -7,3 +7,4 @@ cs509_wrapper
 cs509
 assignment_02/outputs/
 tools/gen_tests2.exe
+*.DS_Store
