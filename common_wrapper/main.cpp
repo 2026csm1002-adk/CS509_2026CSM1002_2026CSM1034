@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../assignment_01/driver/driver.h"
 #include "../assignment_02/driver/driver.h"
+#include "../assignment_03/driver/driver.h"
 #include "menu.h"
 
 int main() {
@@ -17,6 +18,7 @@ int main() {
                 break;
             case 3:
                 assignment03Driver();
+                break;
             case 0:
                 cout<<"Exited"<<endl;
                 return 0;
