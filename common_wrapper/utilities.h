@@ -65,4 +65,12 @@ inline string createOutputFiles2(const string &inputFile, const string &algorith
     return "assignment_02/outputs/" + filename + "_" + algorithm + ".txt";
 }
 
+inline string createOutputFiles3(const string &inputFile, const string &algorithm){
+    fs::create_directories("assignment_03/outputs");
+    string filename = fs::path(inputFile).stem().string();
+
+    return "assignment_03/outputs/" + filename + "_" + algorithm + ".txt";
+}
+
+
 #endif //UTILITY_H
