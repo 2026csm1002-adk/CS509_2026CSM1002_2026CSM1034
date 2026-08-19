@@ -9,10 +9,7 @@
 
 using namespace std;
 
-
-// ------------------------------------------------------------
 // Residual edge
-// ------------------------------------------------------------
 struct ResidualEdge {
     int to;
     int capacity;
@@ -20,9 +17,8 @@ struct ResidualEdge {
 };
 
 
-// ------------------------------------------------------------
+
 // Add an edge to the residual graph
-// ------------------------------------------------------------
 void addEdge(vector<vector<ResidualEdge>>& graph,int u,int v,int capacity){
     ResidualEdge forward;
     forward.to = v;
@@ -38,17 +34,12 @@ void addEdge(vector<vector<ResidualEdge>>& graph,int u,int v,int capacity){
     graph[v].push_back(backward);
 }
 
-
-// ------------------------------------------------------------
 // BFS
 //
 // Creates the level graph.
 //
 // level[v] = distance of v from source
 //            in the residual graph.
-//
-// Returns true if sink is reachable.
-// ------------------------------------------------------------
 bool bfs(vector<vector<ResidualEdge>>& graph,int source,int sink,vector<int>& level){
     fill(level.begin(), level.end(), -1);
 
@@ -62,8 +53,6 @@ bool bfs(vector<vector<ResidualEdge>>& graph,int source,int sink,vector<int>& le
         q.pop();
 
         for (const ResidualEdge& edge : graph[u]){
-            // We can only use an edge that still
-            // has some capacity.
             if (edge.capacity > 0 && level[edge.to] == -1){
                 level[edge.to] = level[u] + 1;
                 q.push(edge.to);
@@ -75,14 +64,12 @@ bool bfs(vector<vector<ResidualEdge>>& graph,int source,int sink,vector<int>& le
 }
 
 
-// ------------------------------------------------------------
 // DFS
 //
 // Tries to send flow from u to sink.
 //
 // flow = maximum amount of flow that can currently
 //        be sent to u.
-// ------------------------------------------------------------
 int dfs(vector<vector<ResidualEdge>>& graph,int u,int sink,int flow,vector<int>& level,vector<int>& nextEdge){
     // We reached the sink.
     if (u == sink) return flow;
@@ -94,7 +81,6 @@ int dfs(vector<vector<ResidualEdge>>& graph,int u,int sink,int flow,vector<int>&
 
 
         // Edge must have capacity
-        // AND must go exactly one level forward.
         if (edge.capacity > 0 && level[edge.to] == level[u] + 1){
             int possibleFlow = min(flow, edge.capacity);
 
@@ -118,15 +104,11 @@ int dfs(vector<vector<ResidualEdge>>& graph,int u,int sink,int flow,vector<int>&
         }
     }
 
-
-    // No flow could be sent from u.
     return 0;
 }
 
 
-// ------------------------------------------------------------
 // Dinic's Maxflow-Mincut
-// ------------------------------------------------------------
 MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
 {
     MaxflowResult result;
@@ -140,11 +122,8 @@ MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
     // Number of vertices.
     int V = csr.row_ptr.size() - 1;
 
-
-    // --------------------------------------------------------
     // STEP 1:
     // Create residual graph.
-    // --------------------------------------------------------
 
     vector<vector<ResidualEdge>> graph(V);
 
@@ -166,11 +145,8 @@ MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
         }
     }
 
-
-    // --------------------------------------------------------
     // STEP 2:
     // Dinic's algorithm
-    // --------------------------------------------------------
 
     vector<int> level(V);
     vector<int> nextEdge(V);
@@ -197,13 +173,11 @@ MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
     }
 
 
-    // --------------------------------------------------------
     // STEP 3:
     // Find source side of minimum cut.
     //
     // Run BFS on FINAL residual graph.
     // Only follow edges with capacity > 0.
-    // --------------------------------------------------------
 
     vector<bool> reachable(V, false);
 
@@ -231,10 +205,8 @@ MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
     }
 
 
-    // --------------------------------------------------------
     // STEP 4:
     // Separate vertices into two sides.
-    // --------------------------------------------------------
 
     for (int v = 0; v < V; v++)
     {
@@ -248,12 +220,9 @@ MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
         }
     }
 
-
-    // --------------------------------------------------------
     // STEP 5:
     // Find cut edges.
     // Cut edge:
-    //
     //      u is reachable
     //      v is not reachable
     // Therefore:
@@ -261,7 +230,6 @@ MaxflowResult maxflow_mincut(int source, int sink, CSR& csr)
     //      u -> v
     //
     // crosses the minimum cut.
-    // --------------------------------------------------------
 
     for (int u = 0; u < V; u++){
         if (!reachable[u])
