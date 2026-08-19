@@ -209,6 +209,61 @@ common_wrapper/
 •⁠  ⁠Betweenness Centrality (Brandes'): Time O(V·E), Space O(V + E)
 •⁠  ⁠Connected Components: Time O(V + E), Space O(V + E)
 
+## Assignment - 03
+The implementations include input handling, algorithm execution, output generation, test cases, and execution-time measurement for Gradient Descent and Max-Flow Min-cut Algorithm
+
+### Gradient Descent
+Gradient Descent is implemented for minimizing a one-variable polynomial function.
+
+The algorithm starts from an initial value of x and iteratively updates it using the gradient of the function until the derivative is within the specified tolerance or the maximum number of iterations is reached.
+
+### Max-Flow Min-Cut
+The Max-Flow Min-Cut algorithm is implemented for finding the maximum possible flow from a source vertex to a sink vertex in a capacitated flow network.
+
+The implementation also identifies the corresponding minimum cut after computing the maximum flow. Undirected graph will remain as input for this algorithm.
+
+### Gradient Descent — Input Format
+```
+DEGREE d
+COEFFICIENTS c0 c1 c2 ... cd
+INITIAL_X x0
+LEARNING_RATE alpha
+TOLERANCE epsilon
+MAX_ITERATIONS n
+```
+Stops when |f'(x)| <= epsilon, or when MAX_ITERATIONS is reached.
+ 
+### Gradient Descent — Output Format
+```
+Algorithm: Gradient Descent
+Degree: 6
+Final x: 0.000000
+Final f(x): 0.000000
+Iterations: 349
+Converged: true
+Execution time: <value> ms
+```
+
+### 9.2 Gradient Descent Results Table
+ 
+| File | Degree | x0 | Rate | Tol. | Max Iter. | Actual x | Actual f(x) | Iterations | Time | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| gd_2.txt | 2 | -1.5 | 0.015 | 1e-6 | 20,000 | 1.224137 | -0.139138 | 853 | 0.005952 ms | Pass |
+| gd_4.txt | 4 | 1.8 | 0.01 | 1e-6 | 20,000 | -1.087986 | -2.019733 | 297 | 0.003147 ms | Pass |
+| gd_6.txt | 6 | -2.2 | 0.008 | 1e-6 | 20,000 | 0.300678 | 0.298256 | 687 | 0.008959 ms | Pass |
+| gd_8.txt | 8 | 1.3 | 0.005 | 1e-6 | 20,000 | -0.672239 | -1.452266 | 591 | 0.009990 ms | Pass |
+| gd_10.txt | 10 | -1.7 | 0.003 | 1e-6 | 20,000 | -nan | -nan | 20,000 | 0.384846 ms | Fail |
+| gd_12.txt | 12 | 2.1 | 0.001 | 1e-6 | 20,000 | -nan | -nan | 20,000 | 0.457585 ms | Fail |
+
+## Max-Flow Min-Cut Results
+
+| Test File | Vertices | Edges | Source | Sink | Minimum Cut Capacity |Max Flow | Execution Time | Status |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| `maxflow_10.txt` | 10 | 20 | 0 | 9 | 84 | 84 | 0.010692 ms | Pass |
+| `maxflow_100.txt` | 100 | 300 | 0 | 99 | 80 | 80 | 0.108842` ms | Pass |
+| `maxflow_10000.txt` | 1000 | 30000 | 0 | 9999 | 97 | 97 | 14.5637 ms | Pass |
+| `maxflow_50000.txt` | 50000 | 150000 | 0 | 49999 | 61 | 61 | 74.2709 ms | Pass |
+
 ### Compilation
   // in root folder
   make
