@@ -2,10 +2,10 @@
 
 void assignment03Driver(){
      while(true){
-        int choice = Menu::showAlgorithmMenu2();
+        int choice = Menu::showAlgorithmMenu3();
         switch(choice){
             case 1:
-                //gradient decent
+                gdDriver();
                 break;
             case 2:
                 maxflow_mincut_driver();

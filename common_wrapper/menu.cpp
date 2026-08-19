@@ -10,6 +10,7 @@ int Menu::showAssignmentMenu(){
 
     cout<<" 1. Assignment 1"<<endl;
     cout<<" 2. Assignment 2"<<endl;
+    cout<<" 3. Assignment 3"<<endl;
     cout<<" 0. Exit"<<endl;
 
     int choose=-1;

@@ -17,7 +17,15 @@ SRC = \
 ./assignment_02/src/triangle_counting/tri_count.cpp \
 ./assignment_02/src/betweenness/betweenness.cpp \
 ./assignment_02/src/connected_components/conn_comp.cpp \
-./assignment_02/driver/driver.cpp
+./assignment_02/driver/driver.cpp \
+./assignment_03/src/io/buildCSR.cpp \
+./assignment_03/src/io/graph_io.cpp \
+./assignment_03/src/maxflow_mincut/driver_maxflow.cpp \
+./assignment_03/src/maxflow_mincut/maxflow_mincut.cpp \
+./assignment_03/src/gradient_descent/gd_io.cpp \
+./assignment_03/src/gradient_descent/gradient_descent.cpp \
+./assignment_03/driver/gd_driver.cpp \
+./assignment_03/driver/driver.cpp 
 all:
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
